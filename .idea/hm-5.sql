@@ -6,7 +6,7 @@ FROM OrderDetails
          JOIN Products ON OrderDetails.ProductID = Products.ProductID
          JOIN Categories ON Categories.CategoryID = Products.CategoryID
 GROUP BY Categories.CategoryID
-ORDER BY min_cost_product
+ORDER BY min_cost_product;
 
 
 -- 2) Вывести ТОП-3 стран по количеству доставленных заказов
@@ -18,7 +18,7 @@ FROM OrderDetails
          JOIN Customers ON Customers.CustomerID = Orders.CustomerID
 GROUP BY Customers.Country
 ORDER BY delivered_orders DESC
-LIMIT 3
+LIMIT 3;
 
 
 -- 3) Вывести ко-во заказов у каждого менеджера (фамилияменеджера, ко-возаказов)
@@ -29,4 +29,4 @@ FROM OrderDetails
          JOIN Orders ON OrderDetails.OrderID = Orders.OrderID
          JOIN Employees ON Employees.EmployeeID = Orders.EmployeeID
 GROUP BY Employees.EmployeeID
-ORDER BY quantity_orders DESC
+ORDER BY quantity_orders DESC;
